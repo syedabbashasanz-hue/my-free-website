@@ -6,24 +6,14 @@ html
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syed Abbas Zaidi | Official Website</title>
     <style>
-        /* These are variables that change when we click the button */
         :root {
             --bg-color: #0b0f19;
             --card-bg: #151d30;
             --text-color: #f3f4f6;
             --accent-color: #3b82f6;
             --text-muted: #9ca3af;
+            --success-color: #10b981;
         }
-
-        /* This is the styling for the Light Mode theme */
-        [data-theme="light"] {
-            --bg-color: #f3f4f6;
-            --card-bg: #ffffff;
-            --text-color: #1f2937;
-            --accent-color: #2563eb;
-            --text-muted: #4b5563;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
@@ -34,17 +24,16 @@ html
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            transition: background-color 0.3s, color 0.3s; /* Makes the color swap smooth! */
         }
         header {
             text-align: center;
             padding: 4rem 2rem 2rem 2rem;
             max-width: 800px;
-            position: relative;
         }
         h1 {
             font-size: 3rem;
             margin-bottom: 0.5rem;
+            color: #fff;
             letter-spacing: -1px;
         }
         .subtitle {
@@ -58,24 +47,6 @@ html
             font-size: 1.1rem;
             line-height: 1.6;
         }
-        
-        /* The Theme Toggle Button Styling */
-        .theme-btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            transition: transform 0.1s;
-        }
-        .theme-btn:active {
-            transform: scale(0.95);
-        }
-
         main {
             width: 90%;
             max-width: 1000px;
@@ -99,15 +70,16 @@ html
             background-color: var(--card-bg);
             padding: 2.5rem;
             border-radius: 12px;
-            border: 1px solid rgba(156, 163, 175, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             line-height: 1.8;
             font-size: 1.1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
         }
         .article-layout h3 {
             margin-top: 0;
             font-size: 2rem;
-            border-bottom: 1px solid rgba(156, 163, 175, 0.2);
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 1rem;
             margin-bottom: 1.5rem;
         }
@@ -116,23 +88,68 @@ html
             color: var(--accent-color);
             font-weight: bold;
             margin-top: 2rem;
-            border-top: 1px solid rgba(156, 163, 175, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 1rem;
         }
         .card {
             background-color: var(--card-bg);
             padding: 1.5rem;
             border-radius: 12px;
-            border: 1px solid rgba(156, 163, 175, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .card h3 {
             margin-top: 0;
+            color: #fff;
         }
         .card p {
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
+            margin-bottom: 1.5rem;
         }
+        .download-btn {
+            display: inline-block;
+            background-color: var(--success-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+        .download-btn:hover {
+            background-color: #059669;
+        }
+        
+        /* Styling for the Network Links section */
+        .network-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .network-btn {
+            flex: 1;
+            min-width: 200px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            font-weight: 500;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .network-btn:hover {
+            border-color: var(--accent-color);
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+
         footer {
             margin-top: auto;
             padding: 2rem;
@@ -140,7 +157,7 @@ html
             font-size: 0.9rem;
             text-align: center;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.05);
+            background-color: rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -149,11 +166,23 @@ html
     <header>
         <h1>Syed Abbas Zaidi</h1>
         <div class="subtitle">Official Website</div>
-        <button class="theme-btn" id="themeToggle">🌓 Switch Theme</button>
         <p class="bio">Welcome to my personal space on the web where I share my creative writing articles and showcase the official applications I build.</p>
     </header>
 
     <main>
+        <section id="apps">
+            <h2>📱 My Applications (Direct Download)</h2>
+            <div class="grid">
+                <div class="card">
+                    <div>
+                        <h3>The Periodic Race 🏎️🧪</h3>
+                        <p>An action-packed educational racing game! Memorize element symbols, dodge periodic table obstacles, and unlock legendary cars like Lightning, Viper, and the Gold Flash. Can you answer the $100 bonus question?</p>
+                    </div>
+                    <a href="ThePeriodicRace.apk" download class="download-btn">📥 Download Game APK</a>
+                </div>
+            </div>
+        </section>
+
         <section id="articles">
             <h2>✍️ Creative Articles</h2>
             <div class="article-layout">
@@ -170,13 +199,12 @@ html
             </div>
         </section>
 
-        <section id="apps">
-            <h2>📱 My Applications</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>App Coming Soon</h3>
-                    <p>I am currently brainstorming and developing my very first major application project. Stay tuned to see it featured right here!</p>
-                </div>
+        <!-- New bottom section linking to your other sites -->
+        <section id="also-see">
+            <h2>🌐 Also See</h2>
+            <div class="network-links">
+                <a href="https://vercel.app" target="_blank" class="network-btn">🔗 hussain-zaidi.vercel.app</a>
+                <a href="https://vercel.app" target="_blank" class="network-btn">🔗 ali-akbar-hyder.vercel.app</a>
             </div>
         </section>
     </main>
@@ -184,22 +212,6 @@ html
     <footer>
         <p>&copy; 2026 Syed Abbas Zaidi. All rights reserved.</p>
     </footer>
-
-    <!-- HERE IS THE JAVASCRIPT CODE! This acts as the brain for the button -->
-    <script>
-        const toggleButton = document.getElementById('themeToggle');
-        
-        toggleButton.addEventListener('click', () => {
-            // Check if the current theme is light
-            if (document.documentElement.getAttribute('data-theme') === 'light') {
-                // If it is light, make it dark
-                document.documentElement.setAttribute('data-theme', 'dark');
-            } else {
-                // If it is dark, make it light
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        });
-    </script>
 
 </body>
 </html>
