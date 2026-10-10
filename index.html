@@ -12,7 +12,6 @@ html
             --text-color: #f3f4f6;
             --accent-color: #3b82f6;
             --text-muted: #9ca3af;
-            --success-color: #10b981;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -96,9 +95,6 @@ html
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
         .card h3 {
             margin-top: 0;
@@ -108,25 +104,7 @@ html
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
-            margin-bottom: 1.5rem;
         }
-        .download-btn {
-            display: inline-block;
-            background-color: var(--success-color);
-            color: white;
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-align: center;
-            transition: background-color 0.2s;
-        }
-        .download-btn:hover {
-            background-color: #059669;
-        }
-        
-        /* Styling for the Network Links section */
         .network-links {
             display: flex;
             gap: 1.5rem;
@@ -149,7 +127,6 @@ html
             border-color: var(--accent-color);
             background-color: rgba(59, 130, 246, 0.05);
         }
-
         footer {
             margin-top: auto;
             padding: 2rem;
@@ -171,40 +148,43 @@ html
 
     <main>
         <section id="apps">
-            <h2>📱 My Applications (Direct Download)</h2>
+            <h2>📱 My Applications</h2>
             <div class="grid">
                 <div class="card">
-                    <div>
-                        <h3>The Periodic Race 🏎️🧪</h3>
-                        <p>An action-packed educational racing game! Memorize element symbols, dodge periodic table obstacles, and unlock legendary cars like Lightning, Viper, and the Gold Flash. Can you answer the $100 bonus question?</p>
-                    </div>
-                    <a href="ThePeriodicRace.apk" download class="download-btn">📥 Download Game APK</a>
+                    <h3>The Periodic Race 🏎️🧪</h3>
+                    <p style="color: #eab308; font-weight: bold; margin-bottom: 0.5rem;">⚠️ STATUS: COMING SOON</p>
+                    <p>An action-packed educational racing game where you dodge periodic table obstacles and unlock custom ability cars. Currently being coded in MIT App Inventor. Stay tuned for the official download link!</p>
                 </div>
             </div>
         </section>
 
         <section id="articles">
             <h2>✍️ Creative Articles</h2>
+            
+            <!-- Article 1: School Trips -->
+            <div class="article-layout">
+                <h3>Importance of school trips</h3>
+                <p>Why do some students not come on school trips? It has become common knowledge that teachers want educational trips but students want fun exciting trips. So then school trips should be a blend of both learning and excitement. But no, school trips are only educational and to make more people go they should be fun and educational.</p>
+                <p>Take the example of an aquarium. This helps students learn about the sea, fish and improve their understanding of the world. However, it would also be fun because instead of sitting behind a desk looking at a screen, you are actually experiencing it!</p>
+                <div class="author-tag">By: syed abbas hasan zaidi</div>
+            </div>
+
+            <!-- Article 2: Saving Water -->
             <div class="article-layout">
                 <h3>Stop wasting water !</h3>
                 <p>Did you know out of all the water on the earth only about 0.3% is actually drinkable. Yes out off all the water on the earth 97.5% is salty. Of the remaining 2.5% 2.2% is frozen in ice sheets and glaciers meaning only 0.3% is drinkable for humans.</p>
-                
                 <p>Water is needed for all living things to survive. Without it they will die and decay. This is famously shown in a quote Dr. Sylvia Earle, a famous oceanographer once said: <em>"No water, no life. No blue, no green."</em> She says this to remind us not a single thing can survive without water. Some can hold out very long but will still eventually die. She also means without blue (water) there cannot be any green (life).</p>
-                
                 <p>As Thomas Fuller once said <em>"We never know the worth of water till the well is dry"</em>. Fuller means that we will never realize how important water is because it is a matter of survival until we have none left and can't renew it.</p>
-                
                 <p>So how do we change this? By not wasting water. Turning the tap off every morning while brushing your teeth can save up to 30 gallons of water per day. Please realize now that not wasting water can save our planet before it's too late. Remember, Save every drop!</p>
-                
                 <div class="author-tag">By: syed abbas hasan zaidi</div>
             </div>
         </section>
 
-        <!-- New bottom section linking to your other sites -->
         <section id="also-see">
             <h2>🌐 Also See</h2>
             <div class="network-links">
                 <a href="https://vercel.app" target="_blank" class="network-btn">🔗 hussain-zaidi.vercel.app</a>
-                <a href="https://vercel.app" target="_blank" class="network-btn">🔗 ali-akbar-hyder.vercel.app</a>
+                <a href="https://vercel.app" target="_blank" class="network-btn">🔗 aliakbarhyder.vercel.app</a>
             </div>
         </section>
     </main>
