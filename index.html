@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syed Abbas Zaidi | Official Website</title>
     <style>
+        /* Default Theme Variables (Start with Dark Blue) */
         :root {
             --bg-color: #0b0f19;
             --card-bg: #151d30;
             --text-color: #f3f4f6;
             --accent-color: #3b82f6;
             --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.05);
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
@@ -22,10 +25,11 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            transition: background-color 0.4s ease, color 0.4s ease; /* Makes color change smooth! */
         }
         header {
             text-align: center;
-            padding: 4rem 2rem 2rem 2rem;
+            padding: 3rem 2rem 1rem 2rem;
             max-width: 800px;
         }
         
@@ -36,13 +40,12 @@
             border: 4px solid var(--accent-color);
             object-fit: cover;
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
             font-size: 3rem;
             margin-bottom: 0.5rem;
-            color: #fff;
             letter-spacing: -1px;
         }
         .subtitle {
@@ -51,11 +54,36 @@
             font-weight: 600;
             margin-bottom: 1.5rem;
         }
-        .bio {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.6;
+        
+        /* 🎨 THEME SWITCHER CONTROLS BOX */
+        .color-picker-box {
+            background-color: var(--card-bg);
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+        .color-picker-box span {
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .color-btn {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .color-btn:hover {
+            transform: scale(1.2);
+        }
+
         main {
             width: 90%;
             max-width: 1000px;
@@ -79,7 +107,7 @@
             background-color: var(--card-bg);
             padding: 2.5rem;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
             line-height: 1.8;
             font-size: 1.1rem;
             margin-bottom: 2rem;
@@ -87,8 +115,7 @@
         .article-layout h3 {
             margin-top: 0;
             font-size: 2rem;
-            color: #fff;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 1rem;
             margin-bottom: 1.5rem;
         }
@@ -97,19 +124,16 @@
             color: var(--accent-color);
             font-weight: bold;
             margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border-color);
             padding-top: 1rem;
         }
         .card {
             background-color: var(--card-bg);
             padding: 1.5rem;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
         }
-        .card h3 {
-            margin-top: 0;
-            color: #fff;
-        }
+        .card h3 { margin-top: 0; }
         .card p {
             color: var(--text-muted);
             font-size: 0.95rem;
@@ -128,7 +152,7 @@
             text-decoration: none;
             padding: 1rem;
             border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
             text-align: center;
             font-weight: 500;
             transition: border-color 0.2s, background-color 0.2s;
@@ -154,6 +178,18 @@
         <img src="me.jpeg" alt="Syed Abbas Zaidi Profile Photo" class="profile-img">
         <h1>Syed Abbas Zaidi</h1>
         <div class="subtitle">Official Website</div>
+        
+        <!-- 🎨 THEME PICKER BUTTONS PANEL -->
+        <div class="color-picker-box">
+            <span>🎨 Change Color:</span>
+            <button class="color-btn" style="background-color: #16a34a;" onclick="changeTheme('green')"></button>
+            <button class="color-btn" style="background-color: #eab308;" onclick="changeTheme('yellow')"></button>
+            <button class="color-btn" style="background-color: #dc2626;" onclick="changeTheme('red')"></button>
+            <button class="color-btn" style="background-color: #2563eb;" onclick="changeTheme('blue')"></button>
+            <button class="color-btn" style="background-color: #000000; border-color: #4b5563;" onclick="changeTheme('black')"></button>
+            <button class="color-btn" style="background-color: #ffffff; border-color: #cbd5e1;" onclick="changeTheme('white')"></button>
+        </div>
+
         <p class="bio">Welcome to my personal space on the web where I share my creative writing articles and showcase the official applications I build.</p>
     </header>
 
@@ -177,7 +213,6 @@
                 <h3>Importance of school trips</h3>
                 <p>Why do some students not come on school trips? It has become common knowledge that teachers want educational trips but students want fun exciting trips. So then school trips should be a blend of both learning and excitement. But no, school trips are only educational and to make more people go they should be fun and educational.</p>
                 <p>Take the example of an aquarium. This helps students learn about the sea, fish and improve their understanding of the world. However, it would also be fun because instead of sitting behind a desk looking at a screen, you are actually experiencing it!</p>
-                <!-- Your brand new concluding paragraph added right here! -->
                 <p>In conclusion school trips are important so you can get out of a desk and experience but still learn and not just be watching a screen but actually going out and experiencing it.</p>
                 <div class="author-tag">By: syed abbas hasan zaidi</div>
             </div>
@@ -197,14 +232,60 @@
             <h2>🌐 Also See</h2>
             <div class="network-links">
                 <a href="https://vercel.app" target="_blank" class="network-btn">🔗 hussain-zaidi.vercel.app</a>
-                <a href="https://vercel.app" target="_blank" class="network-btn">🔗 aliakbarhyder.vercel.app</a>
-            </div>
-        </section>
-    </main>
+Use code with caution.
+🔗 aliakbarhyder.vercel.app
 
-    <footer>
-        <p>&copy; 2026 Syed Abbas Zaidi. All rights reserved.</p>
-    </footer>
 
-</body>
-</html>
+© 2026 Syed Abbas Zaidi. All rights reserved.
+function changeTheme(color) {
+const root = document.documentElement.style;
+if (color === 'green') {
+root.setProperty('--bg-color', '#064e3b');
+root.setProperty('--card-bg', '#065f46');
+root.setProperty('--text-color', '#f0fdf4');
+root.setProperty('--accent-color', '#34d399');
+root.setProperty('--text-muted', '#a7f3d0');
+root.setProperty('--border-color', 'rgba(255,255,255,0.1)');
+}
+else if (color === 'yellow') {
+root.setProperty('--bg-color', '#78350f');
+root.setProperty('--card-bg', '#92400e');
+root.setProperty('--text-color', '#fef3c7');
+root.setProperty('--accent-color', '#fbbf24');
+root.setProperty('--text-muted', '#fde68a');
+root.setProperty('--border-color', 'rgba(255,255,255,0.1)');
+}
+else if (color === 'red') {
+root.setProperty('--bg-color', '#4c0519');
+root.setProperty('--card-bg', '#881337');
+root.setProperty('--text-color', '#ffe4e6');
+root.setProperty('--accent-color', '#fb7185');
+root.setProperty('--text-muted', '#fecdd3');
+root.setProperty('--border-color', 'rgba(255,255,255,0.1)');
+}
+else if (color === 'blue') {
+root.setProperty('--bg-color', '#0c4a6e');
+root.setProperty('--card-bg', '#075985');
+root.setProperty('--text-color', '#e0f2fe');
+root.setProperty('--accent-color', '#38bdf8');
+root.setProperty('--text-muted', '#bae6fd');
+root.setProperty('--border-color', 'rgba(255,255,255,0.1)');
+}
+else if (color === 'black') {
+root.setProperty('--bg-color', '#000000');
+root.setProperty('--card-bg', '#111111');
+root.setProperty('--text-color', '#ffffff');
+root.setProperty('--accent-color', '#3b82f6');
+root.setProperty('--text-muted', '#9ca3af');
+root.setProperty('--border-color', '#222222');
+}
+else if (color === 'white') {
+root.setProperty('--bg-color', '#ffffff');
+root.setProperty('--card-bg', '#f3f4f6');
+root.setProperty('--text-color', '#111827');
+root.setProperty('--accent-color', '#2563eb');
+root.setProperty('--text-muted', '#4b5563');
+root.setProperty('--border-color', '#e5e7eb');
+}
+}
+
